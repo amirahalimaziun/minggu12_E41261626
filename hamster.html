@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamster Syrian</title>
+  <style>
+    /* Scroll halus saat menu diklik */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* --- Gaya Umum Halaman --- */
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(160deg, #fdf4ea 0%, #f3dcc0 100%) no-repeat center center fixed;
+      background-size: cover;
+      color: #4a2c1c;
+    }
+
+    /* Lapisan transparan agar teks lebih terbaca */
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.6);
+      min-height: 100vh;
+    }
+
+    /* --- Header --- */
+    header {
+      background-color: rgba(154, 91, 58, 0.95);
+      /* warna cokelat */
+      color: #fff;
+      text-align: center;
+      padding: 18px 0;
+      position: relative;
+    }
+
+    header img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      position: absolute;
+      top: 12px;
+      left: 40px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 1px;
+    }
+
+    header h3 {
+      margin-top: 4px;
+      margin-bottom: 0;
+      font-weight: normal;
+      font-style: italic;
+      color: #f8e8d6;
+    }
+
+    /* --- Navigasi (menempel di atas saat scroll) --- */
+    nav {
+      background-color: #f3dcc0;
+      text-align: center;
+      padding: 8px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #5b2a14;
+      font-weight: bold;
+      margin: 0 14px;
+      font-size: 15px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: #9a5b3a;
+      color: #fff;
+    }
+
+    /* --- Konten Utama --- */
+    main {
+      padding: 20px 30px;
+      max-width: 900px;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
+      border-radius: 14px;
+    }
+
+    section {
+      margin-bottom: 18px;
+      overflow: hidden;
+      /* agar gambar float tidak keluar */
+      scroll-margin-top: 70px;
+      /* supaya judul tidak tertutup menu */
+    }
+
+    h2 {
+      color: #5b2a14;
+      font-size: 24px;
+      border-bottom: 2px solid #f3dcc0;
+      padding-bottom: 4px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Gambar hamster kecil */
+    svg.hm {
+      width: 100px;
+      height: 100px;
+      float: right;
+      margin: 0 0 0 16px;
+      background-color: #f3dcc0;
+      border-radius: 16px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    /* Daftar jenis warna (horizontal) */
+    ul.warna {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 12px;
+    }
+
+    ul.warna li {
+      text-align: center;
+      flex: 1;
+      background-color: #f8e8d6;
+      border-radius: 12px;
+      padding: 6px 4px;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    ul.warna svg {
+      width: 64px;
+      height: 64px;
+      display: block;
+      margin: 0 auto 2px;
+    }
+
+    article {
+      background-color: #f8e8d6;
+      padding: 12px 15px;
+      border-left: 5px solid #9a5b3a;
+      margin-top: 18px;
+      border-radius: 6px;
+    }
+
+    article h2 {
+      border-bottom: none;
+      margin-bottom: 4px;
+    }
+
+    time {
+      font-weight: bold;
+      color: #9a5b3a;
+    }
+
+    /* --- Alamat --- */
+    address {
+      font-style: normal;
+      margin-top: 18px;
+      background-color: #fdf4ea;
+      padding: 10px 15px;
+      border-left: 5px solid #f3dcc0;
+      border-radius: 6px;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      background-color: #9a5b3a;
+      color: #fdf4ea;
+      padding: 12px 0;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #fdf4ea;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Responsif --- */
+    @media (max-width: 700px) {
+      header img {
+        position: static;
+        display: block;
+        margin: 0 auto 8px;
+      }
+
+      nav a {
+        margin: 0 4px;
+        font-size: 14px;
+        padding: 4px 8px;
+      }
+
+      main {
+        margin: 12px;
+        padding: 16px;
+      }
+
+      ul.warna {
+        flex-wrap: wrap;
+      }
+
+      ul.warna li {
+        flex: 1 1 40%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Gambar hamster (dipakai ulang, warna diatur lewat variabel CSS) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="hamster" viewBox="0 0 200 200">
+        <circle cx="50" cy="52" r="24" fill="var(--fur,#e9a15b)" />
+        <circle cx="150" cy="52" r="24" fill="var(--fur,#e9a15b)" />
+        <circle cx="50" cy="54" r="13" fill="#e8a8a0" />
+        <circle cx="150" cy="54" r="13" fill="#e8a8a0" />
+        <ellipse cx="100" cy="130" rx="70" ry="55" fill="var(--fur,#e9a15b)" />
+        <ellipse cx="100" cy="150" rx="46" ry="36" fill="var(--belly,#f6e3c8)" />
+        <ellipse cx="100" cy="90" rx="68" ry="52" fill="var(--fur,#e9a15b)" />
+        <ellipse cx="100" cy="62" rx="30" ry="20" fill="var(--patch,var(--fur,#e9a15b))" />
+        <ellipse cx="54" cy="110" rx="26" ry="22" fill="var(--cheek,var(--belly,#f6e3c8))" />
+        <ellipse cx="146" cy="110" rx="26" ry="22" fill="var(--cheek,var(--belly,#f6e3c8))" />
+        <ellipse cx="100" cy="108" rx="30" ry="22" fill="var(--belly,#f6e3c8)" />
+        <circle cx="76" cy="88" r="7" fill="#2a1a14" />
+        <circle cx="124" cy="88" r="7" fill="#2a1a14" />
+        <circle cx="78" cy="85" r="2.4" fill="#fff" />
+        <circle cx="126" cy="85" r="2.4" fill="#fff" />
+        <ellipse cx="100" cy="102" rx="7" ry="5" fill="#e59a93" />
+        <path d="M100 107 v5 M100 112 q-8 6 -14 1 M100 112 q8 6 14 1" stroke="#a5605a" fill="none" stroke-width="2"
+          stroke-linecap="round" />
+        <ellipse cx="84" cy="152" rx="10" ry="7" fill="#f0b4ae" />
+        <ellipse cx="116" cy="152" rx="10" ry="7" fill="#f0b4ae" />
+        <ellipse cx="72" cy="180" rx="14" ry="6" fill="#f0b4ae" />
+        <ellipse cx="128" cy="180" rx="14" ry="6" fill="#f0b4ae" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="overlay">
+    <!-- Header -->
+    <header id="beranda">
+      <img
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f3dcc0'/%3E%3Ccircle cx='28' cy='30' r='13' fill='%23e9a15b'/%3E%3Ccircle cx='72' cy='30' r='13' fill='%23e9a15b'/%3E%3Cellipse cx='50' cy='58' rx='34' ry='28' fill='%23e9a15b'/%3E%3Cellipse cx='50' cy='68' rx='18' ry='14' fill='%23fbf0df'/%3E%3Ccircle cx='38' cy='52' r='4' fill='%232a1a14'/%3E%3Ccircle cx='62' cy='52' r='4' fill='%232a1a14'/%3E%3Cellipse cx='50' cy='62' rx='4' ry='3' fill='%23e59a93'/%3E%3C/svg%3E"
+        alt="Logo Hamster Syrian">
+      <h1>Hamster Syrian</h1>
+      <h3>"Si Kecil Menggemaskan dengan Pipi Penuh!"</h3>
+    </header>
+
+    <!-- Navigasi -->
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#warna">Jenis Warna</a>
+      <a href="#perawatan">Perawatan</a>
+    </nav>
+
+    <!-- Konten Utama -->
+    <main>
+      <section id="tentang">
+        <svg class="hm" viewBox="0 0 200 200" style="--fur:#e9a15b;--belly:#fbf0df;--cheek:#f3c58f">
+          <use href="#hamster" />
+        </svg>
+        <h2>Apa Itu Hamster Syrian?</h2>
+        <p>
+          Hamster Syrian adalah jenis hamster yang berasal dari Suriah dan dikenal
+          dengan tubuhnya yang lebih besar dibandingkan hamster dwarf.
+        </p>
+      </section>
+
+      <section>
+        <h2>Ciri-Ciri Utama</h2>
+        <ul>
+          <li>Tubuh relatif besar</li>
+          <li>Bulu lembut dan tebal</li>
+          <li>Memiliki pipi untuk menyimpan makanan</li>
+          <li>Cenderung hidup sendiri</li>
+        </ul>
+      </section>
+
+      <section id="warna">
+        <h2>Jenis Warna Hamster Syrian</h2>
+        <ul class="warna">
+          <li>
+            <svg viewBox="0 0 200 200" style="--fur:#e9a15b;--belly:#fbf0df;--cheek:#f3c58f">
+              <use href="#hamster" />
+            </svg>
+            Golden
+          </li>
+          <li>
+            <svg viewBox="0 0 200 200" style="--fur:#f2d9b6;--belly:#fdf5e8">
+              <use href="#hamster" />
+            </svg>
+            Cream
+          </li>
+          <li>
+            <svg viewBox="0 0 200 200" style="--fur:#c9803f;--patch:#6e3d22;--belly:#f1dcc0;--cheek:#e0a468">
+              <use href="#hamster" />
+            </svg>
+            Banded
+          </li>
+          <li>
+            <svg viewBox="0 0 200 200" style="--fur:#8d93a0;--belly:#d9dbe1">
+              <use href="#hamster" />
+            </svg>
+            Grey
+          </li>
+        </ul>
+      </section>
+
+      <section id="perawatan">
+        <h2>Cara Merawatnya</h2>
+        <ul>
+          <li>Sediakan kandang yang luas</li>
+          <li>Berikan makanan bergizi (biji-bijian, sayur, buah)</li>
+          <li>Pastikan selalu ada air bersih</li>
+          <li>Gunakan roda lari yang aman</li>
+        </ul>
+      </section>
+
+      <article>
+        <h2>Acara Mendatang</h2>
+        <time datetime="2026-12-05">12 April 2027</time>
+        <p>
+          Rayakan Hari Hamster Sedunia (Hamster Day)! Bawa hamster kesayanganmu dan menangkan
+          hadiah menarik.
+        </p>
+      </article>
+
+      <address>
+        <p>
+          <strong>Alamat:</strong><br>
+          Lembang Park and Zoo<br>
+          Jl. Galunggung No. 51, Malang<br>
+          Telp: 0811-3030-601
+        </p>
+      </address>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <small>
+        <i>Copyright &copy; 2026 Hamster Syrian</i><br>
+        <a href="mailto:hamstersyrian@gmail.com">hamstersyrian@gmail.com</a>
+      </small>
+    </footer>
+  </div>
+
+</body>
+
+</html>
